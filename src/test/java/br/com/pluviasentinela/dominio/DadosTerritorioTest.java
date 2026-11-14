@@ -29,4 +29,21 @@ class DadosTerritorioTest {
         assertThrows(DadosInvalidosException.class, () -> new DadosTerritorio(
                 "Vila Esperanca", 8_500, 80, 50, 30, "2026"));
     }
+
+    @Test
+    void naoDeveAlterarParcialmenteOsDadosQuandoUmLimiarForInvalido() {
+        // Arrange
+        DadosTerritorio territorio = new DadosTerritorio(
+                "Vila Esperanca", 8_500, 30, 50, 80, "2026");
+
+        // Act
+        assertThrows(DadosInvalidosException.class,
+                () -> territorio.alterarDados("2026", 10_000, 80, 50, 30));
+
+        // Assert
+        assertEquals(8_500, territorio.getPopulacaoEstimada());
+        assertEquals(30, territorio.getLimiarAtencao());
+        assertEquals(50, territorio.getLimiarAlerta());
+        assertEquals(80, territorio.getLimiarCritico());
+    }
 }

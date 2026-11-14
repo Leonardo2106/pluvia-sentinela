@@ -30,15 +30,31 @@ public class DadosTerritorio {
         setPopulacaoEstimada(populacaoEstimada);
     }
 
+    public void alterarDados(String codigoInformado, int populacaoEstimada,
+                             double atencao, double alerta, double critico) {
+        validarAcesso(codigoInformado);
+        validarPopulacao(populacaoEstimada);
+        validarLimiares(atencao, alerta, critico);
+
+        this.populacaoEstimada = populacaoEstimada;
+        this.limiarAtencao = atencao;
+        this.limiarAlerta = alerta;
+        this.limiarCritico = critico;
+    }
+
     private void definirLimiares(double atencao, double alerta, double critico) {
+        validarLimiares(atencao, alerta, critico);
+        this.limiarAtencao = atencao;
+        this.limiarAlerta = alerta;
+        this.limiarCritico = critico;
+    }
+
+    private void validarLimiares(double atencao, double alerta, double critico) {
         if (!Double.isFinite(atencao) || !Double.isFinite(alerta) || !Double.isFinite(critico)
                 || atencao < 0 || atencao >= alerta || alerta >= critico) {
             throw new DadosInvalidosException("limiares", atencao + "/" + alerta + "/" + critico,
                     "use numeros nao negativos em ordem crescente: atencao < alerta < critico");
         }
-        this.limiarAtencao = atencao;
-        this.limiarAlerta = alerta;
-        this.limiarCritico = critico;
     }
 
     private void validarAcesso(String codigoInformado) {
@@ -71,11 +87,15 @@ public class DadosTerritorio {
     }
 
     private void setPopulacaoEstimada(int populacaoEstimada) {
+        validarPopulacao(populacaoEstimada);
+        this.populacaoEstimada = populacaoEstimada;
+    }
+
+    private void validarPopulacao(int populacaoEstimada) {
         if (populacaoEstimada < 0) {
             throw new DadosInvalidosException("populacaoEstimada", populacaoEstimada,
                     "a populacao nao pode ser negativa");
         }
-        this.populacaoEstimada = populacaoEstimada;
     }
 
     public double getLimiarAtencao() {

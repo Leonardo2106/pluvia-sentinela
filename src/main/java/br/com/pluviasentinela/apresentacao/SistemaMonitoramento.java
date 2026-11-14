@@ -210,8 +210,7 @@ public class SistemaMonitoramento implements CommandLineRunner {
         double alerta = lerDouble(scanner, "Novo limiar de alerta: ");
         double critico = lerDouble(scanner, "Novo limiar critico: ");
 
-        territorio.alterarPopulacaoEstimada(codigo, populacao);
-        territorio.alterarLimiares(codigo, atencao, alerta, critico);
+        territorio.alterarDados(codigo, populacao, atencao, alerta, critico);
         System.out.println("Dados territoriais atualizados com sucesso.");
     }
 
