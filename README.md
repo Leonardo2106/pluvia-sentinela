@@ -2,6 +2,8 @@
 
 Sistema comunitário de monitoramento de chuva intensa e risco de alagamento em pontos vulneráveis. O projeto apoia moradores, equipes da prefeitura e agentes comunitários na decisão de vistoriar drenagens, orientar deslocamentos e preparar uma resposta local.
 
+<h4 style="color:orange">Uso de agentes de IA para apontar e corrigir bugs e erros.</h4>
+
 ## Integrantes e divisão de responsabilidades
 
 - **Leonardo de Magalhães Piassa — RM 563663 — integrante 1:** domínio, exceções e persistência.
