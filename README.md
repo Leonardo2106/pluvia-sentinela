@@ -18,7 +18,7 @@ Sistema comunitário de monitoramento de chuva intensa e risco de alagamento em 
 - alertas automáticos nos níveis `ATENCAO`, `ALERTA` e `CRITICO`;
 - justificativa com sensor, valor previsto, unidade e limite atingido;
 - menu de console para operar e consultar o sistema;
-- dez testes unitários no padrão AAA, incluindo `assertThrows` e Mockito.
+- onze testes unitários no padrão AAA, incluindo `assertThrows` e Mockito.
 
 ## Arquitetura
 
@@ -80,7 +80,7 @@ mvn clean test
 Resultado esperado:
 
 ```text
-Tests run: 10, Failures: 0, Errors: 0, Skipped: 0
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0
 BUILD SUCCESS
 ```
 
